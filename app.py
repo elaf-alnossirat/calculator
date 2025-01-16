@@ -11,17 +11,17 @@ def calculate():
     
         
     if operation == "+":
-      print('{}+{}'.format(x , y))
-      print(x + y)
+      print(f'{x}+{y}={x + y}')
+      
     elif operation == "-":
-      print('{}-{}'.format(x , y))
-      print(x-y)
+      print(f'{x}-{y}={x - y}')
     elif operation == "*":
-      print('{}*{}'.format(x , y))
-      print(x*y)
+      print(f'{x}*{y}={x * y}')
     elif operation == "/":
-      print('{}/{}'.format(x , y))
-      print(x/y)
+      if y == 0:
+        print("Division by zero is not allowed. Please try again.")
+      else:
+        print(f'{x}/{y}={x / y}')   
     else:
       print(" you did not enter a valid operation ,please try again")
     # Add again() function to calculate() function
