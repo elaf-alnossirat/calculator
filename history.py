@@ -53,13 +53,20 @@ def show_history():
                 print("No calculations found in history.")
     except FileNotFoundError:
         print("No history file found. Start by performing a calculation.")
+        
+def clear_history():
+    """Clear the history of calculations."""
+    with open("history.txt", "w") as file:
+        pass  # Open in write mode to overwrite and clear the file
+    print("Calculation history has been cleared.")        
 
 def again():
     calculate_again = input('''
     Do you want to:
     1. Calculate again? (Y)
     2. View calculation history? (H)
-    3. Exit? (N)
+    3. Clear calculation history? (C)
+    4. Exit? (N)
     ''').upper()
     
     if calculate_again == "Y":
@@ -67,6 +74,9 @@ def again():
     elif calculate_again == "H":
         show_history()
         again()
+    elif calculate_again == "C":
+        clear_history()
+        again()    
     elif calculate_again == "N":
         print("See you later! :)")
     else:
