@@ -1,10 +1,14 @@
 def calculate():
-    operation = input("""Enter the operation:
-                      (+) for addition
-                      (-) for subtraction
-                      (*) for multiplication
-                      (/) for division
-                      operation: """)
+    operation = input("""
+                      °--------------------------°
+                      | Enter the operation:     |
+                      | (+) for addition         |
+                      | (-) for subtraction      |
+                      | (*) for multiplication   |
+                      | (/) for division         |
+                      |                          |
+                      °--------------------------°              
+                       << operation >>:   """)
     
     x = float(input("Enter the first number: "))
     y = float(input("Enter the second number: "))
@@ -63,10 +67,10 @@ def clear_history():
 def again():
     calculate_again = input('''
     Do you want to:
-    1. Calculate again? (Y)
-    2. View calculation history? (H)
-    3. Clear calculation history? (C)
-    4. Exit? (N)
+    1. Calculate again? press (Y)
+    2. View calculation history? press (H)
+    3. Clear calculation history? press (C)
+    4. Exit? press (N)
     ''').upper()
     
     if calculate_again == "Y":
