@@ -1,6 +1,7 @@
 def calculate():
     operation = input("""
                       °--------------------------°
+                      |                          | 
                       | Enter the operation:     |
                       | (+) for addition         |
                       | (-) for subtraction      |
@@ -8,7 +9,7 @@ def calculate():
                       | (/) for division         |
                       |                          |
                       °--------------------------°              
-                       << operation >>:   """)
+                       << Operation >>:   """)
     
     x = float(input("Enter the first number: "))
     y = float(input("Enter the second number: "))
@@ -40,12 +41,12 @@ def calculate():
     again()
 
 def save_to_history(x, y, operation, result):
-    """Save the operation and result to a history file."""
+    #Save the operation and result to a history file.
     with open("history.txt", "a") as file:
         file.write(f"{x} {operation} {y} = {result}\n")
 
 def show_history():
-    """Display the history of calculations."""
+    #Display the history of calculations.
     print("\nCalculation History:")
     try:
         with open("history.txt", "r") as file:
@@ -53,13 +54,14 @@ def show_history():
             if history:
                 for line in history:
                     print(line.strip())
+                    # strip() removes any extra spaces or newline characters for clean display.
             else:
                 print("No calculations found in history.")
     except FileNotFoundError:
         print("No history file found. Start by performing a calculation.")
         
 def clear_history():
-    """Clear the history of calculations."""
+    #Clear the history of calculations.
     with open("history.txt", "w") as file:
         pass  # Open in write mode to overwrite and clear the file
     print("Calculation history has been cleared.")        
