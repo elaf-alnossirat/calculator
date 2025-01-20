@@ -1,5 +1,5 @@
 def add(x, y):
-    return x + y 
+    return x + y
 
 def subtract(x, y):
     return x - y
@@ -11,36 +11,31 @@ def divide(x, y):
     if y != 0:
         return x / y
     else:
-        return "Cannot divide by Zero"
+        return "Error: Cannot divide by zero"
 
 def power(x, y):
     return x ** y
-  
-def remainder(x, y):
-    return x % y
+
 
 def calculator():
     history = []  # List to store the history of operations
-  
+
     while True:
-        print("\nSelect operation:")
-        print("1. Add")
-        print("2. Subtract")
-        print("3. Multiply")
-        print("4. Divide")
-        print("5. Power")
-        print("6. Remainder")
-        print("7. View History")
-        print("8. Clear History")
-        print("9. Reset History and Quit")
+        print("""
+        ------------------- MENU -------------------
+        1. Add
+        2. Subtract
+        3. Multiply
+        4. Divide
+        5. View History
+        6. Clear History
+        7. Exit
+        ------------------------------------------
+        """)
 
-        choice = input("Enter choice 1/2/3/4/5/6/7/8/9: ")
+        choice = input("Enter choice (1-7): ")
 
-        if choice == '9':
-            print("Resetting history and exiting...")
-            break
-
-        if choice == '7':
+        if choice == '5':
             print("\nHistory of operations:")
             if history:
                 for operation in history:
@@ -49,9 +44,17 @@ def calculator():
                 print("No operation performed yet.")
             continue
 
-        if choice == '8':
+        if choice == '6':
             history.clear()
             print("History has been cleared.")
+            continue
+
+        if choice == '7':
+            print("Exiting calculator. Goodbye!")
+            break
+
+        if choice not in ['1', '2', '3', '4']:
+            print("Invalid input. Please select a valid option.")
             continue
 
         try:
@@ -60,33 +63,22 @@ def calculator():
 
             if choice == '1':
                 result = add(num1, num2)
-                print(num1, "+", num2, "=", result)
-                history.append(f"{num1} + {num2} = {result}")
+                operation = f"{num1} + {num2} = {result}"
             elif choice == '2':
                 result = subtract(num1, num2)
-                print(num1, "-", num2, "=", result)
-                history.append(f"{num1} - {num2} = {result}")
+                operation = f"{num1} - {num2} = {result}"
             elif choice == '3':
                 result = multiply(num1, num2)
-                print(num1, "*", num2, "=", result)
-                history.append(f"{num1} * {num2} = {result}")
+                operation = f"{num1} * {num2} = {result}"
             elif choice == '4':
                 result = divide(num1, num2)
-                print(num1, "/", num2, "=", result)
-                history.append(f"{num1} / {num2} = {result}")
-            elif choice == '5':
-                result = power(num1, num2)
-                print(num1, "**", num2, "=", result)
-                history.append(f"{num1} ** {num2} = {result}")
-            elif choice == '6':
-                result = remainder(num1, num2)
-                print(num1, "%", num2, "=", result)
-                history.append(f"{num1} % {num2} = {result}")
-            else:
-                print("Invalid input")
+                operation = f"{num1} / {num2} = {result}"
+
+            print(operation)
+            history.append(operation)
 
         except ValueError:
-            print("Error: Invalid input. Please enter a valid number.")
+            print("Error: Invalid input. Please enter valid numbers.")
 
         continue_choice = input("Do you want to perform another operation? (yes/no): ")
         if continue_choice.lower() != 'yes':
